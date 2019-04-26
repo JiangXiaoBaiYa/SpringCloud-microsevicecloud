@@ -8,3 +8,34 @@ eureka:
   client:
     service-url: # EurekaServer地址
       defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 2700
+ribbon:
+  eager-load:
+    enabled: true
+    clients: MICROSERVICECLOUD-USER
+  ConnectTimeout: 500 # 连接超时时长(建立连接)
+  ReadTimeout: 2000 # 数据通信超时时长
+  OkToRetryOnAllOperations: false # 是否对所有的请求方式都重试
+  MaxAutoRetries: 0 # 当前服务器节点的最大重试次数
+  MaxAutoRetriesNextServer: 0 # 接下来还要对服务重试多少次服务
+feign:
+  hystrix:
+    enabled: true # 开启Feign的熔断功能
+  compression:
+    request:
+      enabled: true # 开启请求压缩
+    response:
+      enabled: true # 开启响应压缩
+logging:
+  level:
+    cn.itcast: debug
+
+
