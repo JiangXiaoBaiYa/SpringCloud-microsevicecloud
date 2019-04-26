@@ -1,0 +1,37 @@
+server:
+  port: 9527  #网关的服务端口
+spring:
+  application:
+    name: microservicecloud-zuul-gateway
+
+#zuul:
+#  routes:
+#    MICROSERVICECLOUD-USER:  #这里是路由id,随意写
+#      path: /MICROSERVICECLOUD-USER/**   #这里是映射路径
+#      url: MICROSERVICECLOUD-USER   #映射路径对应的实际url地址
+
+#  以上可以简化为
+zuul:
+  routes:
+    MICROSERVICECLOUD-USER: /MICROSERVICECLOUD-USER/** # 省去了对服务名称的配置
+  prefix: /api  # 添加路由前缀
+  ignored-services: "*"   #禁用全部路由规则
+#      - user-service
+#      - consumer
+
+eureka:
+  instance:
+    ip-address: 127.0.0.1
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+
+
+
+
+info:
+  app.name: atguigu-microcloud
+  company.name: www.atguigu.com
+  build.artifactId: @project.artifactId@
+  build.version: @project.version@

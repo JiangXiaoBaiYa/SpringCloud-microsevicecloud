@@ -17,6 +17,7 @@
         <module>microservicecloud-eureka-7003</module>
         <module>microservicecloud-provider-user2</module>
         <module>microservicecloud-provider-user3</module>
+        <module>microservicecloud-zuul-gateway-9527</module>
     </modules>
 
     <parent>
