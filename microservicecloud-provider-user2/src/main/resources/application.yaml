@@ -23,5 +23,5 @@ eureka:
 info:
   app.name: MyFirstSpringCloud-microservicecloud
   company.name: www.qqtwo.com
-  build.artifactId: $project.artifactId$
-  build.version: $project.version$
+  build.artifactId: @project.artifactId@
+  build.version: @project.version@
