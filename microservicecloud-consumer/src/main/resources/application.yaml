@@ -32,10 +32,12 @@ feign:
   compression:
     request:
       enabled: true # 开启请求压缩
+      mime-types: text/html,application/xml,application/json # 设置压缩的数据类型
+      min-request-size: 2048 # 设置触发压缩的大小下限
     response:
       enabled: true # 开启响应压缩
 logging:
   level:
-    cn.itcast: debug
+    com.qqtwo: debug
 
 

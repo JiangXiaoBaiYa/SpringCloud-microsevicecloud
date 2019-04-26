@@ -1,5 +1,6 @@
 package com.qqtwo.client;
 
+import com.qqtwo.config.FeignConfig;
 import com.qqtwo.pojo.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @Date: 2019/4/26 21:18
  */
 //开启feign功能
-@FeignClient(value = "MICROSERVICECLOUD-USER",fallback = UserClient.UserClientFallback.class )
+@FeignClient(value = "MICROSERVICECLOUD-USER",fallback = UserClient.UserClientFallback.class,configuration = FeignConfig.class)
 public interface UserClient {
 
     @GetMapping("user/{id}")
